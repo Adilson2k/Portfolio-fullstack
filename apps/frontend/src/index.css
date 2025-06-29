@@ -1,0 +1,98 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 27% 6%;
+    --foreground: 210 40% 98%;
+    --card: 220 27% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 27% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 27% 6%;
+    --secondary: 220 27% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 27% 12%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 220 27% 6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 27% 18%;
+    --input: 220 27% 18%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+    --sidebar-background: 220 27% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 220 27% 6%;
+    --sidebar-accent: 220 27% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 27% 18%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-dark-bg text-dark-text font-sans;
+    background: linear-gradient(135deg, #0a0a0f 0%, #131318 100%);
+    background-attachment: fixed;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-dark-text-muted hover:text-dark-text transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300;
+    content: '';
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .section-padding {
+    @apply px-6 sm:px-8 lg:px-12 xl:px-16;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-sm bg-dark-surface/80 border border-dark-border;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent;
+  }
+  
+  .project-card {
+    @apply bg-dark-surface border border-dark-border rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:border-accent-blue/50 hover:shadow-lg hover:shadow-accent-blue/10;
+  }
+  
+  .skill-tag {
+    @apply px-3 py-1 bg-dark-surface-light text-dark-text text-sm rounded-full border border-dark-border hover:border-accent-blue/50 transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .animate-on-scroll.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
